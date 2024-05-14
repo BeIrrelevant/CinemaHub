@@ -1,0 +1,72 @@
+﻿@model CinemaHub.Models.MovieTicket
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Decimal price = CinemaHub.Controllers.TicketController.choosenSeats.Count() * 450;
+}
+
+<div align="center">
+    <div class="card mt-3 ml-5" style="width:30%">
+        <div class="card-header text-center">
+            <h4 class="card-title"><b>Payment Details</b></h4>
+        </div>
+        <div class="card-body">
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div align="center">
+                        <div class="p-3">
+                            Price: ₱@price
+                        </div>
+                        <form class="col-6" method="post" action="saveTicket">
+                            <div class="d-flex flex-column">
+                                <p class="text-left mb-1">Person Name</p>
+                                @Html.TextBoxFor(m => m.cardOwnerName, new { @class="mb-3", @type="text", @placeholder="Name Surname", @required = "required" })
+                            </div>
+                            <div class="d-flex flex-column">
+                                <p class="text-left mb-1">Card Number</p>
+                                @Html.TextBoxFor(m => m.cardNumber, new { @class = "mb-3", @type = "number", @placeholder = "1264 5678 4356 4578", @required = "required" })
+                            </div>
+                            <div class="d-flex flex-column">
+                                <p class="text-left mb-1">Expiry</p>
+                                @Html.TextBoxFor(m => m.cardValidDate, new { @class="mb-3", @type="text", @placeholder="MM/YYYY", @required = "required" })
+
+                            </div>
+                            <div class="d-flex flex-column">
+                                <p class="text-left mb-1">CVV/CVC</p>
+                                @Html.TextBoxFor(m => m.cardCVV, new { @class = "mb-3", @type = "number", @placeholder = "***", @required = "required" })
+
+                            </div>
+                            <script>
+                                var CardNumber = document.getElementById("CardNumber");
+                                var CardNumberControl = /^[0-9]{16}$/;
+                                function validateCardNumber() {
+                                    if (CardNumber.value.match(CardNumberControl)) {
+                                        CardNumber.setCustomValidity('');
+                                    } else {
+                                        CardNumber.setCustomValidity('Size must be 16!');
+                                    }
+                                }
+                                CardNumber.onchange = validateCardNumber;
+                                CardNumber.onkeyup = validateCardNumber;
+                            </script>
+                            <script>
+                                var cvc = document.getElementById("CVC");
+                                var cvcControl = /^[0-9]{3}$/;
+                                function validateCVC() {
+                                    if (cvc.value.match(cvcControl)) {
+                                        cvc.setCustomValidity('');
+                                    } else {
+                                        cvc.setCustomValidity('Size must be 3!');
+                                    }
+                                }
+                                cvc.onchange = validateCVC;
+                                cvc.onkeyup = validateCVC;
+                            </script>
+                            <button type="submit" class="btn btn-success">Continue</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

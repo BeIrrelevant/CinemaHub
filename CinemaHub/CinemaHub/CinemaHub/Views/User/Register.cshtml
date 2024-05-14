@@ -1,0 +1,94 @@
+﻿@model CinemaHub.Models.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_layout2.cshtml";
+}
+
+<title>Sign in </title>
+<div class="row">
+    <div class="offset-md-3 col-6">
+        <div class="signin-circle text-center"><i class="fa fa-user-circle fa-5x"></i></div>
+        <div class="signin-form">
+            <h2 class="text-center text-white"><b>Sign up</b></h2>
+            <form method="post" action="~/user/register">
+                <div class="row justify-content-between">
+                    <div class="form-group col-6">
+                        <label asp-for="name"><b>Name *</b></label>
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="surname"><b>Surname *</b></label>
+                        @Html.EditorFor(model => model.surname, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.surname, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="userName"><b>Username *</b></label>
+                        @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group pr-lg-5">
+                        <label for="gender"><b>Gender *</b></label><br />
+                        <div class="form-check form-check-inline pr-4">
+                            @Html.RadioButtonFor(model => model.gender, false, new { @class = "form-check-input", @name = "gender", @id = "female", @required = "required" })
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline pr-lg-5">
+                            @Html.RadioButtonFor(model => model.gender, true, new { @class = "form-check-input", @name = "gender", @id = "male", @required = "required" })
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="email"><b>Email address *</b></label>
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @type = "email", @required = true } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="phoneNumber"><b>Phone *</b></label>
+                        @Html.EditorFor(model => model.phoneNumber, new { htmlAttributes = new { @class = "form-control", pattern = "[0-9]{11}", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.phoneNumber, "", new { @class = "text-danger" })
+            
+                        <small class="form-text text-muted">12345678910</small>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="password"><b>Password *</b></label>
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @type = "Password", @required = true } })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+           
+                    </div>
+                    <div class="form-group col-6">
+                         <label><b>Confirm Password *</b></label>
+                        <input type="password" class="form-control" name="ConfirmPass" value="" required />
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                   
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="birthday"><b>Birthday *</b></label>
+                        @Html.TextBoxFor(model => model.birthday, "{0:dd.MM.yyyy}", new { @class = "form-control1", @type = "date", @id = "birthday", @placeholder = "dd.mm.yyyy", @required = "required" })
+
+                    </div>
+                    <script>
+                        var password = document.getElementById("password")
+                            , confirm_password = document.getElementById("confirm_password");
+
+                        function validatePassword() {
+                            if (password.value != confirm_password.value) {
+                                confirm_password.setCustomValidity("Passwords Don't Match");
+                            } else {
+                                confirm_password.setCustomValidity('');
+                            }
+                        }
+
+                        password.onchange = validatePassword;
+                        confirm_password.onkeyup = validatePassword;</script>
+                </div>
+                <br />
+                <small class="form-text text-muted ml-3">* <u><em>Required field</em></u></small>
+                <button type="submit" class="btn btn-danger btn-block"><b>Sign In</b></button>
+            </form>
+        </div>
+    </div>
+</div>
+

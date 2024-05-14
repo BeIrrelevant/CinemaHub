@@ -1,0 +1,88 @@
+﻿
+
+@{
+    ViewBag.Title = "listOfUsers";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    List<CinemaHub.Models.User> users = ViewBag.users;
+    string[] tableHeaders = new string[]{
+        "Name","Surname","Username","Gender","Email","Phone Number","Birthday","User Type","Delete","Set Admin or User"
+    };
+    bool flag = false;
+}
+<div class="container-fluid px-4">
+    <p class="text-danger">@ViewBag.errorMessage</p>
+    <div class="card mb-4 mt-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            <b>List Of Users</b>
+        </div>
+        <div class="card-body">
+            <div class="table">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            @foreach (var table_header in tableHeaders)
+                            {
+                                <th>@table_header</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in users)
+                        {
+                            if (flag != false)
+                            {
+                                <tr>
+                                    <td>@user.name</td>
+                                    <td>@user.surname</td>
+                                    <td>@user.userName</td>
+                                    @if (user.gender == true)
+                                    {
+                                        <td>Male</td>
+                                    }
+                                    else
+                                    {
+                                        <td>Female</td>
+                                    }
+                                    <td>@user.email</td>
+                                    <td>@user.phoneNumber</td>
+                                    @{
+                                        DateTime date = user.birthday;
+                                        string birthday = date.ToString("yyyy-MM-dd");
+                                    }
+                                    <td>@birthday</td>
+                                    @if (user.userType == true)
+                                    {
+                                        <td>Admin</td>
+                                    }
+                                    else
+                                    {
+                                        <td>User</td>
+                                    }
+                                    <td>
+                                        <a href="~/user/DeleteUser?user_ID=@user.user_ID" type="button" class="btn btn-danger">Delete</a>
+                                    </td>
+                                    <td>
+                                        @if (user.userType == true)
+                                        {
+                                            <a href="~/user/SetUser?user_ID=@user.user_ID" type="button" class="btn btn-info">Set User</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="~/user/SetAdmin?user_ID=@user.user_ID" type="button" class="btn btn-info">Set Admin</a>
+                                        }
+                                    </td>
+                                </tr>
+                                        }
+                                        else
+                                        {
+                                            flag = true;
+                                        }
+                                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

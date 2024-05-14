@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Mel Anthony Rusiana\OneDrive\Documents\CinemaHub</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>05/13/2024 15:30:02</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>05/13/2024 15:30:02</publishTime>
+    </File>
+    <File Include="bin/CinemaHub.dll">
+      <publishTime>05/13/2024 20:56:15</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>11/03/2015 17:43:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>11/03/2015 17:43:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>12/07/2015 19:04:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>03/10/2016 14:26:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>03/10/2016 14:26:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>03/09/2016 12:00:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>03/10/2016 14:26:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>03/10/2016 14:26:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>03/09/2016 11:57:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/23/2012 15:23:58</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="Content/css/site.css">
+      <publishTime>05/13/2024 20:42:28</publishTime>
+    </File>
+    <File Include="Content/css/style.css">
+      <publishTime>05/11/2024 18:13:12</publishTime>
+    </File>
+    <File Include="Content/css/styles.css">
+      <publishTime>05/13/2024 20:42:31</publishTime>
+    </File>
+    <File Include="Content/js/datatables-simple-demo.js">
+      <publishTime>04/28/2024 21:53:36</publishTime>
+    </File>
+    <File Include="Content/js/scripts.js">
+      <publishTime>04/28/2024 21:53:36</publishTime>
+    </File>
+    <File Include="Content/js/site.js">
+      <publishTime>04/28/2024 21:53:36</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>05/07/2024 02:29:28</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>04/29/2024 21:13:10</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>05/12/2024 16:14:40</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/bootstrap/LICENSE">
+      <publishTime>04/28/2024 21:50:00</publishTime>
+    </File>
+    <File Include="Content/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>05/02/2024 23:33:46</publishTime>
+    </File>
+    <File Include="Content/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>04/28/2024 21:49:42</publishTime>
+    </File>
+    <File Include="Content/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>04/28/2024 21:49:42</publishTime>
+    </File>
+    <File Include="Content/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>04/28/2024 21:49:20</publishTime>
+    </File>
+    <File Include="Content/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>04/28/2024 21:49:20</publishTime>
+    </File>
+    <File Include="Content/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>04/28/2024 21:49:20</publishTime>
+    </File>
+    <File Include="Content/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>04/28/2024 21:49:20</publishTime>
+    </File>
+    <File Include="Content/lib/jquery-validation/LICENSE.md">
+      <publishTime>04/28/2024 21:49:20</publishTime>
+    </File>
+    <File Include="Content/lib/jquery/dist/jquery.js">
+      <publishTime>04/28/2024 21:48:52</publishTime>
+    </File>
+    <File Include="Content/lib/jquery/dist/jquery.min.js">
+      <publishTime>04/28/2024 21:48:52</publishTime>
+    </File>
+    <File Include="Content/lib/jquery/dist/jquery.min.map">
+      <publishTime>04/28/2024 21:48:52</publishTime>
+    </File>
+    <File Include="Content/lib/jquery/LICENSE.txt">
+      <publishTime>04/28/2024 21:48:52</publishTime>
+    </File>
+    <File Include="Content/pic/CinemaHub-image/1773899.jpg">
+      <publishTime>05/12/2024 17:00:02</publishTime>
+    </File>
+    <File Include="Content/pic/CinemaHub-image/fotor-ai-20240512173940.jpg">
+      <publishTime>05/12/2024 17:40:54</publishTime>
+    </File>
+    <File Include="Content/slick/ajax-loader.gif">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/config.rb">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/fonts/slick.eot">
+      <publishTime>04/28/2024 21:48:00</publishTime>
+    </File>
+    <File Include="Content/slick/fonts/slick.svg">
+      <publishTime>04/28/2024 21:48:00</publishTime>
+    </File>
+    <File Include="Content/slick/fonts/slick.ttf">
+      <publishTime>04/28/2024 21:48:00</publishTime>
+    </File>
+    <File Include="Content/slick/fonts/slick.woff">
+      <publishTime>04/28/2024 21:48:00</publishTime>
+    </File>
+    <File Include="Content/slick/slick-theme.css">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/slick-theme.less">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/slick-theme.scss">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/slick.css">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/slick.js">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/slick.less">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/slick.min.js">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Content/slick/slick.scss">
+      <publishTime>04/28/2024 21:47:58</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/28/2024 21:43:50</publishTime>
+    </File>
+    <File Include="ModelCinemaHub.edmx.diagram">
+      <publishTime>05/09/2024 18:40:58</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/29/2024 01:30:40</publishTime>
+    </File>
+    <File Include="scripts/ai.0.22.9-build00167.js">
+      <publishTime>04/28/2024 21:43:56</publishTime>
+    </File>
+    <File Include="scripts/ai.0.22.9-build00167.min.js">
+      <publishTime>04/28/2024 21:43:56</publishTime>
+    </File>
+    <File Include="Views/Admin/AddMovie.cshtml">
+      <publishTime>05/13/2024 15:22:53</publishTime>
+    </File>
+    <File Include="Views/Admin/Edit.cshtml">
+      <publishTime>05/13/2024 15:22:50</publishTime>
+    </File>
+    <File Include="Views/Admin/listOfMovies.cshtml">
+      <publishTime>05/13/2024 15:12:02</publishTime>
+    </File>
+    <File Include="Views/Admin/listOfTickets.cshtml">
+      <publishTime>05/13/2024 15:23:00</publishTime>
+    </File>
+    <File Include="Views/Admin/listOfUsers.cshtml">
+      <publishTime>05/02/2024 23:35:22</publishTime>
+    </File>
+    <File Include="Views/Admin/Profile.cshtml">
+      <publishTime>05/01/2024 22:44:38</publishTime>
+    </File>
+    <File Include="Views/Admin/UpdateMovie.cshtml">
+      <publishTime>05/13/2024 18:55:05</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>05/12/2024 12:37:38</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/13/2024 15:22:32</publishTime>
+    </File>
+    <File Include="Views/Home/Search.cshtml">
+      <publishTime>05/13/2024 15:22:29</publishTime>
+    </File>
+    <File Include="Views/Movie/MovieDetails.cshtml">
+      <publishTime>05/13/2024 15:22:25</publishTime>
+    </File>
+    <File Include="Views/Movie/MovieIndex.cshtml">
+      <publishTime>05/13/2024 19:05:51</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>05/08/2024 15:23:48</publishTime>
+    </File>
+    <File Include="Views/Shared/_Admin.cshtml">
+      <publishTime>05/13/2024 19:06:02</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>05/13/2024 19:35:23</publishTime>
+    </File>
+    <File Include="Views/Shared/_layout2.cshtml">
+      <publishTime>05/13/2024 15:44:54</publishTime>
+    </File>
+    <File Include="Views/Shared/_User.cshtml">
+      <publishTime>05/13/2024 19:05:45</publishTime>
+    </File>
+    <File Include="Views/Shared/_ValidationScriptsPartial.cshtml">
+      <publishTime>05/13/2024 15:22:33</publishTime>
+    </File>
+    <File Include="Views/Ticket/BuyTicket.cshtml">
+      <publishTime>05/13/2024 15:21:29</publishTime>
+    </File>
+    <File Include="Views/Ticket/ChooseSeat.cshtml">
+      <publishTime>05/13/2024 15:21:40</publishTime>
+    </File>
+    <File Include="Views/Ticket/PaymentTicket.cshtml">
+      <publishTime>05/11/2024 18:11:02</publishTime>
+    </File>
+    <File Include="Views/User/LogIn.cshtml">
+      <publishTime>05/13/2024 15:21:49</publishTime>
+    </File>
+    <File Include="Views/User/Profile.cshtml">
+      <publishTime>05/01/2024 20:59:54</publishTime>
+    </File>
+    <File Include="Views/User/Register.cshtml">
+      <publishTime>05/13/2024 19:34:40</publishTime>
+    </File>
+    <File Include="Views/User/UserTickets.cshtml">
+      <publishTime>05/09/2024 14:36:34</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>04/28/2024 21:43:50</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/13/2024 15:25:15</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

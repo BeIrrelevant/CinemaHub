@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CinemaHubDBModelStoreContainer" CdmEntityContainer="CinemaHubDBEntities">
+    <EntitySetMapping Name="CategoriesOfMovies">
+      <EntityTypeMapping TypeName="CinemaHubDBModel.CategoriesOfMovies">
+        <MappingFragment StoreEntitySet="CategoriesOfMovies">
+          <ScalarProperty Name="movie_ID" ColumnName="movie_ID" />
+          <ScalarProperty Name="category_ID" ColumnName="category_ID" />
+          <ScalarProperty Name="categoriesOfMovies_ID" ColumnName="categoriesOfMovies_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="CinemaHubDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+          <ScalarProperty Name="category_ID" ColumnName="category_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cinema">
+      <EntityTypeMapping TypeName="CinemaHubDBModel.Cinema">
+        <MappingFragment StoreEntitySet="Cinema">
+          <ScalarProperty Name="cinemaName" ColumnName="cinemaName" />
+          <ScalarProperty Name="cinema_ID" ColumnName="cinema_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movie">
+      <EntityTypeMapping TypeName="CinemaHubDBModel.Movie">
+        <MappingFragment StoreEntitySet="Movie">
+          <ScalarProperty Name="movieImg" ColumnName="movieImg" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="director" ColumnName="director" />
+          <ScalarProperty Name="trailerLink" ColumnName="trailerLink" />
+          <ScalarProperty Name="viewStatus" ColumnName="viewStatus" />
+          <ScalarProperty Name="movieName" ColumnName="movieName" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="movie_ID" ColumnName="movie_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seat">
+      <EntityTypeMapping TypeName="CinemaHubDBModel.Seat">
+        <MappingFragment StoreEntitySet="Seat">
+          <ScalarProperty Name="seatNo" ColumnName="seatNo" />
+          <ScalarProperty Name="seatLetter" ColumnName="seatLetter" />
+          <ScalarProperty Name="seat_ID" ColumnName="seat_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ticket">
+      <EntityTypeMapping TypeName="CinemaHubDBModel.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cardCVV" ColumnName="cardCVV" />
+          <ScalarProperty Name="cardValidDate" ColumnName="cardValidDate" />
+          <ScalarProperty Name="cardNumber" ColumnName="cardNumber" />
+          <ScalarProperty Name="cardOwnerName" ColumnName="cardOwnerName" />
+          <ScalarProperty Name="session" ColumnName="session" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="seat_ID" ColumnName="seat_ID" />
+          <ScalarProperty Name="user_ID" ColumnName="user_ID" />
+          <ScalarProperty Name="movie_ID" ColumnName="movie_ID" />
+          <ScalarProperty Name="cinema_ID" ColumnName="cinema_ID" />
+          <ScalarProperty Name="ticket_ID" ColumnName="ticket_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccount">
+      <EntityTypeMapping TypeName="CinemaHubDBModel.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="user_ID" ColumnName="user_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

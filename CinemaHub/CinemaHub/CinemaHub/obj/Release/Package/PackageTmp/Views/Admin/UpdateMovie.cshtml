@@ -1,0 +1,100 @@
+﻿
+@model CinemaHub.Models.MovieHub
+@{
+
+    ViewBag.Title = "UpdateMovie";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    CinemaHub.Models.MovieHub movie = ViewBag.movie;
+    List<String> categories = ViewBag.categories;
+
+}
+
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-plus-circle me-1"></i>
+                    Update Movie
+                </div>
+                <div class="card-body">
+                        <form method="post" action="~/admin/updatemovie?movie_ID=@movie.movie_ID" enctype="multipart/form-data">
+                            <div class="row justify-content-between">
+                                <div class="col-lg-6">
+                                    <div class="input-group">
+                                        <label asp-for="movieName"><b>Name *</b></label>
+                                        <input asp-for="movieName" class="form-control" type="text" name="movieName" id="movieName" value="@movie.movieName" placeholder="@movie.movieName" required>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label asp-for="categories"><b>Category *</b></label>
+                                    <select class="form-select" aria-label="" required>
+                                        <option value="@movie.categories" selected disabled>@movie.categories</option>
+                                        @foreach (var category in categories)
+                                        {
+                                            <option value="@category.TrimEnd()">@category</option>
+
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-group">
+                                        <label asp-for="description" class="form-label w-100"><b>Description *</b></label>
+                                        <textarea asp-for="description" class="form-control" id="exampleFormControlTextarea1" value="@movie.description" placeholder="@movie.description"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="input-group">
+                                        <label asp-for="duration" class="w-100"><b>Duration *</b></label>
+                                        <input asp-for="duration" class="form-control" type="text" name="duration" id="duration" value="@movie.duration" placeholder="@movie.duration" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="input-group">
+                                        <label asp-for="director" class="w-100"><b>Director *</b></label>
+                                        <input asp-for="director" class="form-control" type="text" name="director" id="director" value="@movie.director" placeholder="@movie.director" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="input-group">
+                                        <label asp-for="year" class="w-100"><b>Year *</b></label>
+                                        <input asp-for="year" class="form-control" type="text" name="year" id="year" value="@movie.year" placeholder="@movie.year" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="input-group">
+                                        <label asp-for="trailerLink" class="w-100"><b>Trailer Link *</b></label>
+                                        <input asp-for="trailerLink" class="form-control" type="text" name="trailerLink" id="trailerLink" value="@movie.trailerLink" placeholder="@movie.trailerLink" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="input-group">
+                                        <label asp-for="viewStatus" class="w-100"><b>View Status *</b></label>
+                                        <input asp-for="viewStatus" class="form-control" type="text" name="viewStatus" id="viewStatus" value="@movie.viewStatus" placeholder="@movie.viewStatus" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <label for="movieImg"><b>Image *</b></label>
+                                        @Html.LabelFor(model => model.movieImg, new { @class = "control-label" })
+                                        <input type="file" name="ImageFile" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div align="center">
+                                <button type="submit" class="btn btn-danger btn-block"><b>Submit</b></button>
+                            </div>
+                        </form>
+                   </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

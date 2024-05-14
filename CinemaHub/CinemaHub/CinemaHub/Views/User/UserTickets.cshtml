@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "UserTickets";
+    Layout = "~/Views/Shared/_User.cshtml";
+}
+
+@{
+
+    List<CinemaHub.Models.MovieTicket> tickets = ViewBag.tickets;
+
+    string[] tableHeaders = new string[]{
+        "ID","Name","Surname","Movie","Cinema","Seat Letter","Seat No","Session","Date","Card Owner Name","Card Number","Price"
+    };
+
+}
+<div class="container-fluid px-4">
+    <div class="card mb-4 mt-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            <b>List Of Tickets</b>
+        </div>
+        <div class="card-body">
+            <div class="table">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            @foreach (var table_header in tableHeaders)
+                            {
+                                <th>@table_header</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ticket in tickets)
+                        {
+
+                            <tr>
+                                <td>@ticket.ticket_ID</td>
+                                <td>@ticket.name</td>
+                                <td>@ticket.surname</td>
+                                <td>@ticket.movieName</td>
+                                <td>@ticket.cinemaName</td>
+                                <td>@ticket.seatLetter</td>
+                                <td>@ticket.seatNo</td>
+                                <td>@ticket.session</td>
+                                <td class="col-1">
+                                    @{
+                                        DateTime date = ticket.date;
+                                        string ticketDate = date.ToString("yyyy-MM-dd");
+                                    }@ticketDate
+                                </td>
+                                <td>@ticket.cardOwnerName</td>
+                                <td>@ticket.cardNumber</td>
+                                <td>@ticket.price</td>
+                                <td>
+                                    <a href="~/user/deleteticket?ticket_ID=@ticket.ticket_ID" class="btn btn-danger">Remove</a>
+                                </td>
+                            </tr>
+                                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

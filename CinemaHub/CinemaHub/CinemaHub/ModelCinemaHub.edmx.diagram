@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e82be0b0ff674393b0adeab0177a4bfc" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="CinemaHubDBModel.CategoriesOfMovies" Width="1.5" PointX="3.875" PointY="5.25" />
+        <EntityTypeShape EntityType="CinemaHubDBModel.Category" Width="1.5" PointX="1.875" PointY="4.375" />
+        <EntityTypeShape EntityType="CinemaHubDBModel.Cinema" Width="1.5" PointX="6.375" PointY="1" />
+        <EntityTypeShape EntityType="CinemaHubDBModel.Movie" Width="1.5" PointX="8.625" PointY="2" />
+        <EntityTypeShape EntityType="CinemaHubDBModel.Seat" Width="1.5" PointX="6.25" PointY="3.625" />
+        <EntityTypeShape EntityType="CinemaHubDBModel.Ticket" Width="1.5" PointX="4.125" PointY="0.875" />
+        <EntityTypeShape EntityType="CinemaHubDBModel.UserAccount" Width="1.5" PointX="1.875" PointY="0.875" />
+        <AssociationConnector Association="CinemaHubDBModel.FK_CategoriesOfMovies__Category" />
+        <AssociationConnector Association="CinemaHubDBModel.FK_Ticket_Cinema" />
+        <AssociationConnector Association="CinemaHubDBModel.FK_Ticket_Movie" />
+        <AssociationConnector Association="CinemaHubDBModel.FK_Ticket_Seat" />
+        <AssociationConnector Association="CinemaHubDBModel.FK_Ticket_UserAccount" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

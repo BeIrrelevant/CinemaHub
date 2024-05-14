@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<int> takenSeats = CinemaHub.Controllers.TicketController.takenSeats;
+    List<int> choosenSeats = CinemaHub.Controllers.TicketController.choosenSeats;
+}
+
+<div align="center">
+    <div class="card mt-3" style="width:70%">
+        <div class="card-header">
+            <h4 class="card-title"><b>Buy Tickets</b></h4>
+        </div>
+        <p class="text-danger">@ViewBag.errorMessage</p>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-9 mt-4">
+                    <div class="seats" style="height: 410px;">
+                        <div class="p-1" align="center">The Scene</div>
+                        @{
+                            int id = 1;
+
+                            for (int seatLetter = 65; seatLetter <= 72; seatLetter++)
+                            {
+
+                                char seat = Convert.ToChar(seatLetter);
+
+                                <div class="seat-order">
+                                    <div class="seat-one">@seat</div>
+                                    @for (var seatNo = 1; seatNo <= 15; seatNo++)
+                                    {
+                                        if (takenSeats.Contains(id))
+                                        {
+                                            <button class="seat-one seat seat-taken" value="@id">@seatNo</button>
+                                        }
+                                        else
+                                        {
+                                            if (choosenSeats.Contains(id))
+                                            {
+                                                <button type="button" onclick='location.href="@Url.Action("deleteSeat", "Ticket", new { seat_ID = id })"' class="seat-one seat-active" value="@id">@seatNo</button>
+                                            }
+                                            else
+                                            {
+                                                <button type="button" onclick='location.href="@Url.Action("addSeat", "Ticket", new { seat_ID = id })"' class="seat-one seat" value="@id">@seatNo</button>
+                                            }
+                                        }
+
+                                        id++;
+                                    }
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="card mt-4" style="height:350px;">
+                    <div class="card-header">
+                        <h5 class="card-title">Choosen Seats</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            @{
+                                id = 1;
+
+                                for (int seatLetter = 65; seatLetter <= 72; seatLetter++)
+                                {
+
+                                    char seat = Convert.ToChar(seatLetter);
+
+                                    for (var seatNo = 1; seatNo <= 15; seatNo++)
+                                    {
+
+                                        if (choosenSeats.Contains(id))
+                                        {
+                                            <li>@(seat.ToString() + seatNo)</li>
+                                        }
+
+                                        id++;
+
+                                    }
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                    @{
+                        int price = choosenSeats.Count() * 450;
+                    }
+                    <div class="card-body mt-4">
+                        Price: ₱@price
+                    </div>
+                </div>
+            </div>
+            <div class="btn btn-success">
+                <a href="~/ticket/paymentTicket">
+                    Continue
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

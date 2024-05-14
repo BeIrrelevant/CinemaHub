@@ -1,0 +1,167 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Movie Page";
+
+    List<CinemaHub.Models.MovieHub> allMovies = ViewBag.allMovies;
+    List<CinemaHub.Models.MovieHub> inTheaters = ViewBag.inTheaters;
+    List<CinemaHub.Models.MovieHub> comingSoon = ViewBag.comingSoon;
+    List<CinemaHub.Models.MovieHub> oldMovies = ViewBag.oldMovies;
+    List<String> CategoryNames = ViewBag.CategoryNames;
+
+}
+<div id="index">
+    <div class="=index">
+        <div class="card-header">
+            <div class="nav nav-pills d-flex justify-content-between ml-xl-5  mr-xl-5 p-4">
+                <div class="btn-group" style="float:right">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:200px;height:40px;">
+                        CATEGORIES
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                   
+                        @foreach (string category in CategoryNames)
+                        {
+                            <a href="~/movie/MovieIndex/?category_Name=@category" style="width:200px;height:40px;" class="dropdown-item" onctype="button">
+                                @category
+                            </a>
+                        }
+                    </div>
+                </div>
+
+                <a class="nav-link active btn btn-primary" href="~/movie/MovieIndex" style="width:200px;height:40px;">
+                    All Movies
+                </a>
+                <a class="nav-link btn btn-primary" data-toggle="pill" href="#old-movies" style="width:200px;height:40px;">
+                    Old Movies
+                </a>
+                <a class="nav-link btn btn-primary" data-toggle="pill" href="#in-theaters" style="width:200px;height:40px;">
+                    In Theaters
+                </a>
+
+                <a class="nav-link btn btn-primary" data-toggle="pill" href="#coming-soon" style="width:200px;height:40px;">
+                    Coming Soon
+                </a>
+
+                
+            </div>
+        </div>
+        <br />
+        <div class="tab-content">
+            <div class="tab-pane fade active show" id="all-movies" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"><b>All Movies</b></h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach (CinemaHub.Models.MovieHub movie in allMovies)
+                            {
+                                <div class="col-lg-4 col-md-6 mt-4 filmler">
+                                    <div class="d-flex align-items-center">
+                                        <div class="col-6 p-0 position-relative">
+                                            <a href="~/Movie/MovieDetails?movie_ID=@movie.movie_ID">
+                                                <img class="img-fluid rounded w-100" style="width:15rem;height:22rem;" src="/CinemaHub/@movie.movieImg" />
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5 class="mb-2"><b> @movie.movieName</b></h5>
+                                            <p class="mb-2">@movie.categories</p>
+                                            <p class="mb-2">@movie.duration min</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="old-movies" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"><b>Old Movies</b></h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach (CinemaHub.Models.MovieHub movie in oldMovies)
+                            {
+                                <div class="col-lg-4 col-md-6 mt-4 filmler">
+                                    <div class="d-flex align-items-center">
+                                        <div class="col-6 p-0 position-relative">
+                                            <a href="~/Movie/MovieDetails?movie_ID=@movie.movie_ID">
+                                                <img class="img-fluid rounded w-100" style="width:15rem;height:22rem;" src="/CinemaHub/@movie.movieImg" />
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5 class="mb-2"><b> @movie.movieName</b></h5>
+                                            <p class="mb-2">@movie.categories</p>
+                                            <p class="mb-2">@movie.duration min</p> 
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="in-theaters" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"><b>In Theaters</b></h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach (CinemaHub.Models.MovieHub movie in inTheaters)
+                            {
+                             
+                                <div class="col-lg-4 col-md-6 mt-4 filmler">
+                                    <div class="d-flex align-items-center">
+                                        <div class="col-6 p-0 position-relative">
+                                            <a href="~/Movie/MovieDetails?movie_ID=@movie.movie_ID">
+                                                <img class="img-fluid rounded w-100" style="width:15rem;height:22rem;" src="/CinemaHub/@movie.movieImg" />
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5 class="mb-2"><b> @movie.movieName</b></h5>
+                                            <p class="mb-2">@movie.categories</p>
+                                            <p class="mb-2">@movie.duration min</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="coming-soon" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"><b>Coming Soon</b></h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach (CinemaHub.Models.MovieHub movie in comingSoon)
+                            {
+                                <div class="col-lg-4 col-md-6 mt-4 filmler">
+                                    <div class="d-flex align-items-center">
+                                        <div class="col-6 p-0 position-relative">
+                                            <a href="~/Movie/MovieDetails?movie_ID=@movie.movie_ID">
+                                                <img class="img-fluid rounded w-100" style="width:15rem;height:22rem;" src="/CinemaHub/@movie.movieImg" />
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5 class="mb-2"><b> @movie.movieName</b></h5>
+                                            <p class="mb-2">@movie.categories</p>
+                                            <p class="mb-2">@movie.duration min</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</div>

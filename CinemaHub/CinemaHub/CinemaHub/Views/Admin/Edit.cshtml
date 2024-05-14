@@ -1,0 +1,143 @@
+﻿
+@model CinemaHub.Models.User
+@{
+    CinemaHub.Models.User user = CinemaHub.Controllers.UserController.currentUser;
+
+    if (user.userType)
+    {
+        Layout = "~/Views/Shared/_Admin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_User.cshtml";
+    }
+
+    DateTime date = user.birthday;
+    string birthday = date.ToString("yyyy-MM-dd");
+}
+
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-user-edit me-1"></i>
+                    Edit Profile
+                </div>
+                <div class="card-body">
+                    <form method="post" action="~/admin/edit">
+                        <div class="row justify-content-between">
+                            <div class="form-group col-5">
+                                <label asp-for="name"><b>Name *</b></label>
+                                <div class="col-5">
+
+                                    @Html.TextBoxFor(model => model.name, new { @class = "form-control1", @type = "text", @name = "name", @id = "name", @value = user.name, @placeholder = user.name, @required = "required" })
+
+
+
+
+                                </div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label asp-for="surname"><b>Surname *</b></label>
+                                <div class="col-5">
+                                  
+                                    @Html.TextBoxFor(model => model.surname, new { @class = "form-control1", @type = "text", @name = "surname", @id = "surname", @value = user.surname, @placeholder = user.surname, @required = "required" })
+
+
+                                 </div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label asp-for="userName"><b>Username </b></label>
+                                <div class="col-5">
+                                    @Html.TextBoxFor(model => model.userName, new { @class = "form-control1", @type = "text", @name = "userName", @id = "userName", @value = user.userName, @placeholder = user.userName, @disabled = "disabled" })
+
+
+                                </div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label asp-for="gender"><b>Gender *</b></label><br />
+                                <div class="col-5">
+                                    @if (user.gender)
+                                    {
+                                        <div class="form-check form-check-inline pr-4">
+                                            <input asp-for="gender" class="form-check-input" type="radio" name="gender" id="female" value="false" required>
+                                            <label class="form-check-label" for="female">Female</label>
+                                        </div>
+                                        <div class="form-check form-check-inline pr-lg-5">
+                                            <input asp-for="gender" class="form-check-input" type="radio" name="gender" id="male" value="true" required checked>
+                                            <label class="form-check-label" for="male">Male</label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-check form-check-inline pr-4">
+                                            <input asp-for="gender" class="form-check-input" type="radio" name="gender" id="female" value="false" required checked>
+                                            <label class="form-check-label" for="female">Female</label>
+                                        </div>
+                                        <div class="form-check form-check-inline pr-lg-5">
+                                            <input asp-for="gender" class="form-check-input" type="radio" name="gender" id="male" value="true" required>
+                                            <label class="form-check-label" for="male">Male</label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label asp-for="email"><b>Email address *</b></label>
+                                <div class="col-5">
+                                    <input asp-for="email" class="form-control1" type="email" id="email" value="@user.email" placeholder="@user.email" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label asp-for="phoneNumber"><b>Phone *</b></label>
+                                <div class="col-5">
+                                    @Html.TextBoxFor(model => model.phoneNumber, new { @class = "form-control1", @type = "tel", @id = "tel", @value = user.phoneNumber, @placeholder = user.phoneNumber, @pattern = "[0-9]{10}", @required = "required" })
+                           
+                                </div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label asp-for="password"><b>Password *</b></label>
+                                <div class="col-5">
+                                    <input asp-for="password" class="form-control1" type="password" id="password" value="@user.password" placeholder="@user.password" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label><b>Confirm Password *</b></label>
+                                <div class="col-5">
+                                    <input class="form-control1" type="password" id="confirm_password" placeholder="Confirm Password" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-5">
+                                <label asp-for="birthday"><b>Birthday *</b></label>
+                                <div class="col-5">
+                                    @Html.TextBoxFor(model => model.birthday, new { @class = "form-control1", @type = "date", @id = "birthday", @value = user.birthday.ToString("yyyy-MM-dd"), @required = "required" })
+
+                                </div>
+                            </div>
+                            <script>
+                                var password = document.getElementById("password")
+                                    , confirm_password = document.getElementById("confirm_password");
+
+                                function validatePassword() {
+                                    if (password.value != confirm_password.value) {
+                                        confirm_password.setCustomValidity("Passwords Don't Match");
+                                    } else {
+                                        confirm_password.setCustomValidity('');
+                                    }
+                                }
+
+                                password.onchange = validatePassword;
+                                confirm_password.onkeyup = validatePassword;</script>
+                        </div>
+                        <br />
+                        <div align="center">
+                            <button type="submit" class="btn btn-danger btn-block"><b>Submit</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,284 @@
+﻿
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+   background-image: url('../pic/CinemaHub-image/fotor-ai-20240512173940.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   
+}
+
+.footer {
+    min-height: 40px;
+}
+
+h2 {
+    color: white;
+}
+
+div {
+    display: block;
+   
+}
+
+.container {
+    margin: 0;
+    max-width: none !important;
+    
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+    a:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+.btn-primary {
+    border: 0;
+    font-weight: 900;
+    background: #cf1b1e;
+  
+
+}
+
+    .btn-primary:hover {
+        border: 0;
+        background: initial;
+        color: #ffffff ;
+    }
+
+.bg-primary {
+    background-color: #212529 !important;
+}
+
+/* Navbar 
+ ----------------------------------*/
+
+.navbar-expand-lg {
+    justify-content: space-between !important;
+}
+
+.website-name {
+   
+    text-align: center;
+    float: left;
+    width: 100px;
+    color: rgb(61, 62, 63);
+}
+
+.action-btn {
+    width: 350px;
+    margin-top: 20px;
+    justify-content: center;
+   margin-left: 250px;
+
+
+}
+
+    .action-btn .search-bar {
+        margin-top: 15px;
+        width: 333px;
+    }
+
+.btn-group i {
+    color: white;
+}
+
+.btn-group .dropdown-toggle {
+    color: white;
+}
+
+.account-info {
+    width: 350px;
+    padding-right: 30px;
+}
+
+.account-info a {
+        float: right;
+        width: 170px;
+        margin-top: 40px;
+    }
+
+.account-icon {
+    font-size: 30px;
+    float: left;
+}
+
+.account-id {
+    font-size: 20px;
+}
+/* Carousel
+ ----------------------------------*/
+.carousel {
+    padding: 15px 40px;
+}
+
+.card {
+    border: none !important;
+    background-color: rgb(241, 238,238,0.9);
+}
+
+.lister-filter-group {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+}
+
+.faceter-facet {
+    cursor: pointer;
+    font-weight: normal;
+}
+
+#trailer {
+    display: none;
+}
+
+    #trailer.shown {
+        display: block;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.seats {
+    margin-top: 15px;
+    position: relative;
+    left: 0;
+    padding: 0px 10px;
+}
+
+    .seats .seat-order {
+        font-size: 0;
+        width: auto;
+        text-align: center;
+        display: -webkit-box;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+        .seats .seat-order .seat-one {
+            position: relative;
+            margin: 2px;
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+            line-height: 35px;
+            font-family: "Airbnb Cereal App Bold";
+            font-size: 0.6875rem;
+            color: black;
+            z-index: 13;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+.seat {
+    background-color: white;
+    box-shadow: inset 0 0 0 2px #cbcbcb;
+    color: #000 !important;
+}
+
+.seat-active {
+    background: #f8e71c;
+    box-shadow: inset 0 0 0 2px #f8e71c;
+}
+
+.seat-taken {
+    background: #eb5353;
+    box-shadow: inset 0 0 0 2px #ff006e;
+}
+
+.seats .seat-order .seat-one:before {
+    content: "";
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+/* rate */
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+    .rate:not(:checked) > input {
+        position: absolute;
+        top: -9999px;
+    }
+
+    .rate:not(:checked) > label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+    }
+
+        .rate:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+    .rate > input:checked ~ label {
+        color: #ffc700;
+    }
+
+    .rate:not(:checked) > label:hover,
+    .rate:not(:checked) > label:hover ~ label {
+        color: #deb217;
+    }
+
+    .rate > input:checked + label:hover,
+    .rate > input:checked + label:hover ~ label,
+    .rate > input:checked ~ label:hover,
+    .rate > input:checked ~ label:hover ~ label,
+    .rate > label:hover ~ input:checked ~ label {
+        color: #c59b08;
+    }

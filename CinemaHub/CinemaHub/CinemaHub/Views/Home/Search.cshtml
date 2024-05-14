@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    List<CinemaHub.Models.MovieHub> movies = ViewBag.movies;
+
+    string[] tableHeaders = new string[]{
+        "Image","Name","Category","Duration","Director","Year","View Status","Trailer"
+    };
+}
+<div class="container-fluid px-4">
+    <div class="card mb-4 mt-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            <b>Results</b>
+        </div>
+        <div class="card-body">
+            <div class="table">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            @foreach (var table_header in tableHeaders)
+                            {
+                                <th>@table_header</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var movie in movies)
+                        {
+                            <tr>
+                                <td>
+                                   
+                                    <a href="~/Movie/MovieDetails?movie_ID=@movie.movie_ID">
+                                        <img class="img-fluid rounded w-100" style="width:5rem;height:10rem;" src="/CinemaHub/@movie.movieImg" />
+                                    </a>
+                                </td>
+                                <td>@movie.movieName</td>
+                                <td>
+                                    @movie.categories
+                                </td>
+                                <td>@movie.duration</td>
+                                <td>@movie.director</td>
+                                <td>@movie.year</td>
+                                <td>@movie.viewStatus</td>
+                                <td>@movie.trailerLink</td>
+                            </tr>
+                                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

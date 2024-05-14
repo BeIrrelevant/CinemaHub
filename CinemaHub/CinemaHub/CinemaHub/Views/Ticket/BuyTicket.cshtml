@@ -1,0 +1,56 @@
+﻿@model CinemaHub.Models.MovieTicket
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    String movieName = ViewBag.movieName;
+    List<CinemaHub.Models.CinemaMax> cinemas = ViewBag.cinemas;
+
+}
+<div align="center">
+    <div class="card mt-3" style="width:55%">
+        <div class="card-header">
+            <h4 class="card-title"><b>Buy Tickets</b></h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 mt-4" align="center">
+                    <form class="col-6 ml-4" method="post" action="~/ticket/chooseseat">
+                        <div>
+                            <h3 class="card-title mb-4">@movieName</h3>
+                        </div>
+                        <div class="form-group" id="cinemaGroup">
+                            <label for="exampleFormControlSelect2">Cinema</label>
+                            <select asp-for="cinema_ID" class="form-control" id="cinemas" name="cinema">
+                                @foreach (var cinema in cinemas)
+                                {
+                                    <option class="cinema" value="@cinema.cinema_ID" >@cinema.cinemaName</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group mt-1" id="calender">
+                            @{
+                                DateTime today = DateTime.Today;
+                                DateTime endDate = today.AddMonths(2);
+                                string todayString = today.ToString("yyyy-MM-dd");
+                            }
+                            <label for="start">Start date:</label>
+                            <input asp-for="date" type="date" id="date" name="date"
+                                   value="@today.ToString("yyyy-MM-dd")"
+                                   min="@today.ToString("yyyy-MM-dd")" max="@endDate.ToString("yyyy-MM-dd")">
+                        </div>
+                        <div class="form-group" id="sessionGroup">
+                            <label for="exampleFormControlSelect3">Session</label>
+                            <select asp-for="session" class="form-control" id="exampleFormControlSelect3" name="session">
+                                <option value="1:30">1:30 PM</option>
+                                <option value="4:00">4:00 PM</option>
+                                <option value="6:30">6:30 PM</option>
+                                <option value="9:00">9:00 PM</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Continue</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

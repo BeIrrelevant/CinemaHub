@@ -1,0 +1,97 @@
+﻿
+
+
+@model CinemaHub.Models.MovieHub
+
+@{
+
+    ViewBag.Title = "AddMovie";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    List<String> categories = ViewBag.categories;
+
+}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-plus-circle me-1"></i>
+                    Add Movie
+                </div>
+                <div class="card-body">
+                    <form method="post" action="~/admin/AddMovie" enctype="multipart/form-data">
+                        <div class="row justify-content-between">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <label><b>Name *</b></label>
+                                    @Html.EditorFor(model => model.movieName, new { htmlAttributes = new { @class = "form-control", placeholder = "Movie Name" } })
+                                    @Html.ValidationMessageFor(model => model.movieName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label><b>Category *</b></label>
+                                @Html.DropDownList("categories", new SelectList(categories), "Select Category", new { @class = "form-select", aria_label = "", required = "required" })
+
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <label class="form-label w-100"><b>Description *</b></label>
+                                    @Html.TextAreaFor(model => model.description, new { @class = "form-control", placeholder = "Description" })
+                                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="input-group">
+                                    <label class="w-100"><b>Duration *</b></label>
+                                    @Html.EditorFor(model => model.duration, new { htmlAttributes = new { @class = "form-control", placeholder = "Duration" } })
+                                    @Html.ValidationMessageFor(model => model.duration, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="input-group">
+                                    <label class="w-100"><b>Director *</b></label>
+                                    @Html.EditorFor(model => model.director, new { htmlAttributes = new { @class = "form-control", placeholder = "Director" } })
+                                    @Html.ValidationMessageFor(model => model.director, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="input-group">
+                                    <label class="w-100"><b>Year *</b></label>
+                                    @Html.EditorFor(model => model.year, new { htmlAttributes = new { @class = "form-control", placeholder = "Year" } })
+                                    @Html.ValidationMessageFor(model => model.year, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="input-group">
+                                    <label class="w-100"><b>Trailer Link *</b></label>
+                                    @Html.EditorFor(model => model.trailerLink, new { htmlAttributes = new { @class = "form-control", placeholder = "Trailer Link" } })
+                                    @Html.ValidationMessageFor(model => model.trailerLink, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="input-group">
+                                    <label class="w-100"><b>View Status *</b></label>
+                                    @Html.EditorFor(model => model.viewStatus, new { htmlAttributes = new { @class = "form-control", placeholder = "View Status" } })
+                                    @Html.ValidationMessageFor(model => model.viewStatus, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                             
+                                    <label for="movieImg"><b>Image *</b></label>
+                                    @Html.LabelFor(model => model.movieImg, new { @class = "control-label" })
+                                    <input type="file" name="ImageFile" required>
+
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div align="center">
+                            <button type="submit" class="btn btn-danger btn-block"><b>Submit</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

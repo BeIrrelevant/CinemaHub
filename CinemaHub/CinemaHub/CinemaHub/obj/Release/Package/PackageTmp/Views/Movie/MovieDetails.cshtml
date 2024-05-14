@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Movie Details Page";
+
+    CinemaHub.Models.MovieHub movie = ViewBag.movie;
+   
+
+    String img_source = movie.movieName.ToLower().Replace(" ", "_") + "_" + movie.year + ".jpg";
+}
+<div class="bg-white">
+    <div class="row ml-5 mr-5 mt-3">
+        <div class="col-sm-4 p-4">
+            <img class="img-fluid rounded w-100" src="/CinemaHub/@movie.movieImg" />
+        </div>
+        <div class="col-8 p-4">
+            <h1 class="pb-5 pt-1">
+                @movie.movieName
+            </h1>
+            <h4 class="mb-4">
+                @movie.categories
+            </h4>
+            <h4 class="mb-4">
+                Director: @movie.director
+            </h4>
+            <h4 class="mb-4">
+                Year: @movie.year
+            </h4>
+            @if (!movie.viewStatus.Equals("coming soon"))
+            {
+              
+            }
+            <h4 class="mb-4">
+                Duration: @movie.duration minutes
+            </h4>
+            @if (movie.viewStatus.Equals("in theaters"))
+            {
+                <div class="btn btn-info ml-5">
+                    <a href="~/Ticket/BuyTicket?movie_ID=@movie.movie_ID">
+                        Buy Ticket
+                    </a>
+                </div>
+            }
+            <div class="btn btn-info ml-5" id="trailer-btn">
+                <a href="#">
+                    Trailer
+                </a>
+            </div>
+            <br /><br />
+            <br /><br />
+        </div>
+        <iframe id="trailer" width="900" height="508" src="https://www.youtube.com/embed/@movie.trailerLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+    <div class="row m-4 ml-5 mr-5">
+        <p>@movie.description</p>
+    </div>
+</div>

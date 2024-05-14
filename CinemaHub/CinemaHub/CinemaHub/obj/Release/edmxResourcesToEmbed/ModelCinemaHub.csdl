@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CinemaHubDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CinemaHubDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CategoriesOfMovies" EntityType="CinemaHubDBModel.CategoriesOfMovies" />
+    <EntitySet Name="Category" EntityType="CinemaHubDBModel.Category" />
+    <EntitySet Name="Cinema" EntityType="CinemaHubDBModel.Cinema" />
+    <EntitySet Name="Movie" EntityType="CinemaHubDBModel.Movie" />
+    <EntitySet Name="Seat" EntityType="CinemaHubDBModel.Seat" />
+    <EntitySet Name="Ticket" EntityType="CinemaHubDBModel.Ticket" />
+    <EntitySet Name="UserAccount" EntityType="CinemaHubDBModel.UserAccount" />
+    <AssociationSet Name="FK_CategoriesOfMovies__Category" Association="CinemaHubDBModel.FK_CategoriesOfMovies__Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoriesOfMovies" EntitySet="CategoriesOfMovies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Cinema" Association="CinemaHubDBModel.FK_Ticket_Cinema">
+      <End Role="Cinema" EntitySet="Cinema" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Movie" Association="CinemaHubDBModel.FK_Ticket_Movie">
+      <End Role="Movie" EntitySet="Movie" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Seat" Association="CinemaHubDBModel.FK_Ticket_Seat">
+      <End Role="Seat" EntitySet="Seat" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_UserAccount" Association="CinemaHubDBModel.FK_Ticket_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CategoriesOfMovies">
+    <Key>
+      <PropertyRef Name="categoriesOfMovies_ID" />
+    </Key>
+    <Property Name="categoriesOfMovies_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_ID" Type="Int32" Nullable="false" />
+    <Property Name="movie_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="CinemaHubDBModel.FK_CategoriesOfMovies__Category" FromRole="CategoriesOfMovies" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="category_ID" />
+    </Key>
+    <Property Name="category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CategoriesOfMovies" Relationship="CinemaHubDBModel.FK_CategoriesOfMovies__Category" FromRole="Category" ToRole="CategoriesOfMovies" />
+  </EntityType>
+  <EntityType Name="Cinema">
+    <Key>
+      <PropertyRef Name="cinema_ID" />
+    </Key>
+    <Property Name="cinema_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cinemaName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ticket" Relationship="CinemaHubDBModel.FK_Ticket_Cinema" FromRole="Cinema" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="movie_ID" />
+    </Key>
+    <Property Name="movie_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="duration" Type="Int32" />
+    <Property Name="movieName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="viewStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="trailerLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="director" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="movieImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ticket" Relationship="CinemaHubDBModel.FK_Ticket_Movie" FromRole="Movie" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="seat_ID" />
+    </Key>
+    <Property Name="seat_ID" Type="Int32" Nullable="false" />
+    <Property Name="seatLetter" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="seatNo" Type="Int32" />
+    <NavigationProperty Name="Ticket" Relationship="CinemaHubDBModel.FK_Ticket_Seat" FromRole="Seat" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="ticket_ID" />
+    </Key>
+    <Property Name="ticket_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cinema_ID" Type="Int32" />
+    <Property Name="movie_ID" Type="Int32" />
+    <Property Name="user_ID" Type="Int32" />
+    <Property Name="seat_ID" Type="Int32" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <Property Name="session" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="cardOwnerName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cardNumber" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="cardValidDate" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="cardCVV" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <NavigationProperty Name="Cinema" Relationship="CinemaHubDBModel.FK_Ticket_Cinema" FromRole="Ticket" ToRole="Cinema" />
+    <NavigationProperty Name="Movie" Relationship="CinemaHubDBModel.FK_Ticket_Movie" FromRole="Ticket" ToRole="Movie" />
+    <NavigationProperty Name="Seat" Relationship="CinemaHubDBModel.FK_Ticket_Seat" FromRole="Ticket" ToRole="Seat" />
+    <NavigationProperty Name="UserAccount" Relationship="CinemaHubDBModel.FK_Ticket_UserAccount" FromRole="Ticket" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="user_ID" />
+    </Key>
+    <Property Name="user_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="userName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="Boolean" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="userType" Type="Boolean" />
+    <NavigationProperty Name="Ticket" Relationship="CinemaHubDBModel.FK_Ticket_UserAccount" FromRole="UserAccount" ToRole="Ticket" />
+  </EntityType>
+  <Association Name="FK_CategoriesOfMovies__Category">
+    <End Type="CinemaHubDBModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="CinemaHubDBModel.CategoriesOfMovies" Role="CategoriesOfMovies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="category_ID" />
+      </Principal>
+      <Dependent Role="CategoriesOfMovies">
+        <PropertyRef Name="category_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Cinema">
+    <End Type="CinemaHubDBModel.Cinema" Role="Cinema" Multiplicity="0..1" />
+    <End Type="CinemaHubDBModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cinema">
+        <PropertyRef Name="cinema_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="cinema_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Movie">
+    <End Type="CinemaHubDBModel.Movie" Role="Movie" Multiplicity="0..1" />
+    <End Type="CinemaHubDBModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="movie_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="movie_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Seat">
+    <End Type="CinemaHubDBModel.Seat" Role="Seat" Multiplicity="0..1" />
+    <End Type="CinemaHubDBModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seat">
+        <PropertyRef Name="seat_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="seat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_UserAccount">
+    <End Type="CinemaHubDBModel.UserAccount" Role="UserAccount" Multiplicity="0..1" />
+    <End Type="CinemaHubDBModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="user_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="user_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "listOfMovies";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    List<CinemaHub.Models.MovieHub> movies = ViewBag.movies;
+
+    string[] tableHeaders = new string[]{
+        "Image","Name","Category","Duration","Director","Year","View Status","Trailer"
+    };
+
+}
+
+
+<div class="container-fluid px-4">
+    <div class="card mb-4 mt-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            <b>List Of Movies</b>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="datatablesSimple" class="table">
+                    <thead>
+                        <tr>
+                            @foreach (var table_header in tableHeaders)
+                            {
+                                <th>@table_header</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var movie in movies)
+                        {
+                            <tr>
+                                <td>    
+                                    
+                                    <img class= "img-fluid rounded w-100" style="width:5rem;height:10rem;" src="/CinemaHub/@movie.movieImg" />
+                                </td>
+                                <td>@movie.movieName</td>
+                                <td>@movie.categories</td>
+                                <td>@movie.duration</td>
+                                <td>@movie.director</td>
+                                <td>@movie.year</td>
+                                <td>@movie.viewStatus</td>
+                                <td>@movie.trailerLink</td>
+                                <td>
+                                    <a href="~/admin/updatemovie?movie_ID=@movie.movie_ID" class="btn btn-primary">Edit</a>
+                                    <br />
+                                    <a href="~/admin/deletemovie?movie_ID=@movie.movie_ID" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

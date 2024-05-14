@@ -1,0 +1,59 @@
+﻿@{
+    CinemaHub.Models.User user = CinemaHub.Controllers.UserController.currentUser;
+
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+    DateTime date = user.birthday;
+    string birthday = date.ToString("yyyy-MM-dd");
+}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="far fa-address-card me-1"></i>
+                    Profile
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label><b>Name : </b></label>
+                            <label>@user.name</label>
+                        </div>
+                        <div class="col-6">
+                            <label><b>Surname : </b></label>
+                            <label>@user.surname</label>
+                        </div>
+                        <div class="col-6">
+                            <label><b>UserName : </b></label>
+                            <label>@user.userName</label>
+                        </div>
+                        <div class="col-6">
+                            <label><b>Gender : </b></label>
+                            @if (@user.gender == true)
+                            {
+                                <label>Male</label>
+                            }
+                            else
+                            {
+                                <label>Female</label>
+                            }
+                        </div>
+                        <div class="col-6">
+                            <label><b>Email : </b></label>
+                            <label>@user.email</label>
+                        </div>
+                        <div class="col-6">
+                            <label><b>Phone : </b></label>
+                            <label>@user.phoneNumber</label>
+                        </div>
+                        <div class="col-6">
+                            <label><b>Birthday : </b></label>
+                            <label>@birthday</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

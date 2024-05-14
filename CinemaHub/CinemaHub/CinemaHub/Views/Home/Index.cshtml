@@ -1,0 +1,119 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+    List<CinemaHub.Models.MovieHub> inTheaters = ViewBag.inTheaters;
+    List<CinemaHub.Models.MovieHub> comingSoon = ViewBag.comingSoon;
+    List<CinemaHub.Models.MovieHub> oldMovies = ViewBag.oldMovies;
+
+
+}
+
+<div id="index">
+    <div class="index">
+        <div class="row">
+           <div class="col-lg-12 pt-4 carousel">
+                <h3 class="card-title"><b>In Theaters</b></h3>
+                <div class="list-inline p-0 mb-0 row slick-initialized slick-slider">
+                    <div class="slick-list draggable">
+                        <ul class="slick-track p-0">
+                            @foreach (CinemaHub.Models.MovieHub movie in inTheaters)
+                            {
+
+                                <li class="col-sm-4 slick-slide" style="width:48%;">
+                                    <div class="d-flex align-items-center">
+                                        <div class="col-6 p-0 position-relative">
+                                            <a href="~/Movie/MovieDetails?movie_ID=@movie.movie_ID">
+                                                <img class="img-fluid rounded w-100" style="width:450px;height:550px;" src="/CinemaHub/@movie.movieImg" />
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5 class="mb-2"><b> @movie.movieName</b></h5>
+                                            <p class="mb-2">@movie.categories</p>
+                                            <p class="mb-2">@movie.duration min</p>
+                                          
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-10 offset-1">
+                <div class="col-12 mt-4 coming-soon">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><b>Coming Soon</b></h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-inline p-0 mb-0 row slick-initialized slick-slider">
+                                <div class="slick-list draggable">
+                                    <ul class="coming-soon-slider p-0">
+                                        @foreach (CinemaHub.Models.MovieHub movie in comingSoon)
+                                        {
+
+                                            <li class="col-md-4 slick-slide" style="width:48%;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="col-6 p-0 position-relative">
+                                                        <a href="~/Movie/MovieDetails?movie_ID=@movie.movie_ID">
+                                                            <img class="img-fluid rounded w-100" style="width:250px;height:250px;" src="/CinemaHub/@movie.movieImg" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="mb-2"><b> @movie.movieName</b></h5>
+                                                        <p class="mb-2">@movie.categories</p>
+                                                        <p class="mb-2">@movie.duration min</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-4 old-movies">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><b>Old Movies</b></h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-inline p-0 mb-0 row slick-initialized slick-slider">
+                                <div class="slick-list draggable">
+                                    <ul class="old-movies-slider p-0">
+
+                                        @foreach (CinemaHub.Models.MovieHub movie in oldMovies)
+                                        {
+                                            <li class="col-md-4 slick-slide" style="width:48%;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="col-6 p-0 position-relative">
+                                                        <a href="~/Movie/MovieDetails?movie_ID=@movie.movie_ID">
+                                                            <img class="img-fluid rounded w-100" style="width:250px;height:250px;" src="/CinemaHub/@movie.movieImg" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="mb-2"><b> @movie.movieName</b></h5>
+                                                        <p class="mb-2">@movie.categories</p>
+                                                        <p class="mb-2">@movie.duration min</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

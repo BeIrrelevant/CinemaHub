@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CinemaHubDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CategoriesOfMovies">
+    <Key>
+      <PropertyRef Name="categoriesOfMovies_ID" />
+    </Key>
+    <Property Name="categoriesOfMovies_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_ID" Type="int" Nullable="false" />
+    <Property Name="movie_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="category_ID" />
+    </Key>
+    <Property Name="category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cinema">
+    <Key>
+      <PropertyRef Name="cinema_ID" />
+    </Key>
+    <Property Name="cinema_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cinemaName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="movie_ID" />
+    </Key>
+    <Property Name="movie_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="duration" Type="int" />
+    <Property Name="movieName" Type="varchar" MaxLength="100" />
+    <Property Name="viewStatus" Type="varchar" MaxLength="30" />
+    <Property Name="trailerLink" Type="varchar(max)" />
+    <Property Name="director" Type="varchar" MaxLength="50" />
+    <Property Name="year" Type="int" />
+    <Property Name="movieImg" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="seat_ID" />
+    </Key>
+    <Property Name="seat_ID" Type="int" Nullable="false" />
+    <Property Name="seatLetter" Type="char" MaxLength="1" />
+    <Property Name="seatNo" Type="int" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="ticket_ID" />
+    </Key>
+    <Property Name="ticket_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cinema_ID" Type="int" />
+    <Property Name="movie_ID" Type="int" />
+    <Property Name="user_ID" Type="int" />
+    <Property Name="seat_ID" Type="int" />
+    <Property Name="date" Type="date" />
+    <Property Name="session" Type="varchar" MaxLength="5" />
+    <Property Name="cardOwnerName" Type="varchar" MaxLength="30" />
+    <Property Name="cardNumber" Type="char" MaxLength="16" />
+    <Property Name="cardValidDate" Type="char" MaxLength="7" />
+    <Property Name="cardCVV" Type="char" MaxLength="3" />
+    <Property Name="price" Type="int" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="user_ID" />
+    </Key>
+    <Property Name="user_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="30" />
+    <Property Name="surname" Type="varchar" MaxLength="30" />
+    <Property Name="userName" Type="varchar" MaxLength="30" />
+    <Property Name="gender" Type="bit" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="phoneNumber" Type="char" MaxLength="11" />
+    <Property Name="birthday" Type="date" />
+    <Property Name="password" Type="varchar" MaxLength="30" />
+    <Property Name="userType" Type="bit" />
+  </EntityType>
+  <Association Name="FK_CategoriesOfMovies__Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="CategoriesOfMovies" Type="Self.CategoriesOfMovies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="category_ID" />
+      </Principal>
+      <Dependent Role="CategoriesOfMovies">
+        <PropertyRef Name="category_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Cinema">
+    <End Role="Cinema" Type="Self.Cinema" Multiplicity="0..1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cinema">
+        <PropertyRef Name="cinema_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="cinema_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Movie">
+    <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="movie_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="movie_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_Seat">
+    <End Role="Seat" Type="Self.Seat" Multiplicity="0..1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seat">
+        <PropertyRef Name="seat_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="seat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ticket_UserAccount">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="0..1" />
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="user_ID" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="user_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CinemaHubDBModelStoreContainer">
+    <EntitySet Name="CategoriesOfMovies" EntityType="Self.CategoriesOfMovies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cinema" EntityType="Self.Cinema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seat" EntityType="Self.Seat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CategoriesOfMovies__Category" Association="Self.FK_CategoriesOfMovies__Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoriesOfMovies" EntitySet="CategoriesOfMovies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Cinema" Association="Self.FK_Ticket_Cinema">
+      <End Role="Cinema" EntitySet="Cinema" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Movie" Association="Self.FK_Ticket_Movie">
+      <End Role="Movie" EntitySet="Movie" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_Seat" Association="Self.FK_Ticket_Seat">
+      <End Role="Seat" EntitySet="Seat" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ticket_UserAccount" Association="Self.FK_Ticket_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="Ticket" EntitySet="Ticket" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
